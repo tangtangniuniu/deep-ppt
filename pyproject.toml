@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "deep-ppt"
+version = "0.1.0"
+description = "AI-powered deep topic analysis to editable PPTX generator"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+    {name = "tangtangniuniu"},
+]
+keywords = ["ai", "pptx", "presentation", "notebooklm", "slides"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "python-pptx>=0.6.23",
+    "click>=8.1",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.1",
+    "ruff>=0.3",
+]
+
+[project.scripts]
+deep-ppt = "deep_ppt.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/tangtangniuniu/deep-ppt"
+Repository = "https://github.com/tangtangniuniu/deep-ppt"
+Issues = "https://github.com/tangtangniuniu/deep-ppt/issues"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=deep_ppt --cov-report=term-missing"
